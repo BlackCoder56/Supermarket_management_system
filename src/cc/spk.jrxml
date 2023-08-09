@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="226" pageHeight="425" columnWidth="186" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a621433a-8649-464f-b636-4a6a6ae219ae">
+	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="invo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     soloid AS salesProduct_soloid,
+     name AS salesProduct_name,
+     price AS salesProduct_price,
+     qty AS salesProduct_qty,
+     tota AS salesProduct_tota,
+     soID AS salesProduct_soID,
+     sutt AS salesProduct_sutt,
+     pay AS salesProduct_pay,
+     bal AS salesProduct_bal,
+     salesProduct."soloid" AS salesProduct_soloid,
+     salesProduct."name" AS salesProduct_name,
+     salesProduct."price" AS salesProduct_price,
+     salesProduct."qty" AS salesProduct_qty,
+     salesProduct."tota" AS salesProduct_tota,
+     salesProduct."Sid" AS salesProduct_Sid,
+     oosolo."soID" AS oosolo_soID,
+     oosolo."sutt" AS oosolo_sutt,
+     oosolo."pay" AS oosolo_pay,
+     oosolo."bal" AS oosolo_bal,
+     oosolo."date" AS oosolo_date,
+     oosolo."time" AS oosolo_time
+FROM
+     "salesProduct" salesProduct INNER JOIN "oosolo" oosolo ON salesProduct."soloid" = oosolo."soID"
+WHERE
+     oosolo.soID = $P{invo}]]>
+	</queryString>
+	<field name="salesProduct_soloid" class="java.lang.Integer"/>
+	<field name="salesProduct_name" class="java.lang.String"/>
+	<field name="salesProduct_price" class="java.lang.Integer"/>
+	<field name="salesProduct_qty" class="java.lang.Integer"/>
+	<field name="salesProduct_tota" class="java.lang.Long"/>
+	<field name="salesProduct_soID" class="java.lang.Integer"/>
+	<field name="salesProduct_sutt" class="java.lang.String"/>
+	<field name="salesProduct_pay" class="java.lang.String"/>
+	<field name="salesProduct_bal" class="java.lang.String"/>
+	<field name="salesProduct_Sid" class="java.lang.Integer"/>
+	<field name="oosolo_soID" class="java.lang.Integer"/>
+	<field name="oosolo_sutt" class="java.lang.String"/>
+	<field name="oosolo_pay" class="java.lang.String"/>
+	<field name="oosolo_bal" class="java.lang.String"/>
+	<field name="oosolo_date" class="java.lang.String"/>
+	<field name="oosolo_time" class="java.lang.String"/>
+	<group name="sales">
+		<groupFooter>
+			<band height="75">
+				<textField>
+					<reportElement x="119" y="10" width="67" height="14" uuid="02a23cce-b11b-4e33-ba33-882aadda5234"/>
+					<textElement>
+						<font size="8" isBold="true" isItalic="false" isStrikeThrough="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{oosolo_sutt}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="119" y="24" width="67" height="14" uuid="6f1e7d91-3100-4ecd-b3ce-dda74a29c78b"/>
+					<textElement>
+						<font size="8" isBold="true" isItalic="false" isStrikeThrough="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{oosolo_pay}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="119" y="38" width="67" height="11" uuid="09a59cea-8ed2-4f2f-b2e9-d3abc396b0ce"/>
+					<textElement>
+						<font size="8" isBold="true" isItalic="false" isStrikeThrough="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{oosolo_bal}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="10" width="34" height="14" uuid="38be09ce-74d4-4928-8c8c-f3ce2e3c7c36"/>
+					<textElement>
+						<font fontName="Serif" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="38" width="34" height="11" uuid="150a2363-47bb-4e06-89bb-cf078c1513e8"/>
+					<textElement>
+						<font fontName="Serif" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Change]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="24" width="34" height="14" uuid="951a4e0e-cc70-4ad0-b19a-fb5f36d8f3cc"/>
+					<textElement>
+						<font fontName="Serif" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cash]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="58" width="150" height="12" uuid="90463efe-845c-4186-8ac8-1529c64b33bd"/>
+					<textElement>
+						<font fontName="Century" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Thank you!!! Please Come Again...]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="57" width="186" height="1" uuid="7920e829-32fe-4fed-b9f9-99df59361c27"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="75" splitType="Stretch">
+			<staticText>
+				<reportElement x="41" y="39" width="109" height="10" uuid="8538d442-559c-401f-b28d-1afc013732e4"/>
+				<textElement>
+					<font fontName="Century" size="8" isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[LOCATED IN KOLOLO ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="49" width="122" height="10" uuid="7d746e09-0942-42ff-8ba9-02f5fe933f70"/>
+				<textElement>
+					<font fontName="Century" size="6" isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[TEL: 256-757873918 / 256-770779823]]></text>
+			</staticText>
+			<image>
+				<reportElement x="34" y="-23" width="141" height="86" uuid="c3db7375-7e02-4b6c-848c-be6befa353bd"/>
+				<imageExpression><![CDATA["C:\\Users\\Dell\\Desktop\\java work\\Projects\\Real Life project\\ep supermarket sm1 BW.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="4" y="15" width="48" height="10" uuid="1e32a41c-0de8-4c9e-add3-89e62663bfc3"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Monospaced" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INVOICE CODE:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="1" width="186" height="1" uuid="0f4fcfd1-4871-4231-a556-3d3a6269e990"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<elementGroup/>
+			<componentElement>
+				<reportElement x="52" y="15" width="67" height="24" uuid="43fbdba3-2071-488f-ae85-c380e7652418"/>
+				<jr:Code128 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" textPosition="bottom">
+					<jr:codeExpression><![CDATA[$F{oosolo_soID}]]></jr:codeExpression>
+				</jr:Code128>
+			</componentElement>
+			<staticText>
+				<reportElement x="4" y="3" width="48" height="12" uuid="4694cee8-6de5-4728-919e-80f12cf26238"/>
+				<textElement>
+					<font fontName="Monospaced" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Invoice Date:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="126" y="3" width="49" height="12" uuid="61068ebd-fbe3-42ef-a9fb-719fed7f1a16"/>
+				<textElement>
+					<font fontName="Monospaced" size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{oosolo_time}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="56" y="3" width="76" height="12" uuid="332f143f-5f80-4f55-af93-abf9a473a29b"/>
+				<textElement>
+					<font fontName="Monospaced" size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{oosolo_date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="86" height="11" uuid="e712aebe-bc07-48cf-bab3-cef7187d512c"/>
+				<textElement>
+					<font fontName="Serif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="2" width="33" height="12" uuid="ff42e878-0f8b-4f2a-adaa-2db9826aeb94"/>
+				<textElement>
+					<font fontName="Serif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="2" width="31" height="11" uuid="85b5f24c-a4a4-45aa-829a-35387d246ade"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QTY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="2" width="36" height="11" uuid="973e0ef7-f346-4d05-a7c5-17dc63a764f2"/>
+				<textElement>
+					<font fontName="Serif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="13" width="186" height="1" uuid="caddd02e-b820-4bbc-803f-f83bb2690254"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="186" height="1" uuid="05572b47-66c2-4ac0-a1ba-06189e461e27"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField>
+				<reportElement x="86" y="1" width="33" height="11" uuid="8b0c4603-d963-4875-8863-64013d4b7980"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{salesProduct_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="1" width="31" height="11" uuid="68dba5a4-043a-4dd1-8292-b69ca5bc334b"/>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{salesProduct_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="1" width="36" height="11" uuid="725acedd-88df-46d1-8527-3ea35a912c3a"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{salesProduct_tota}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="12" width="186" height="1" uuid="8bafb85a-2e4e-4d61-9370-a2a4cddfc2b0"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="0" y="1" width="86" height="11" uuid="ecbf4354-148a-42c9-baa9-2074a8e13c0a"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{salesProduct_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="3" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="5" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
